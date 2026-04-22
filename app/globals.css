@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --color-ink: #0a0a0a;
+  --color-ink-muted: #6b6b6b;
+  --color-ink-faint: #9a9a9a;
+  --color-panel: #ffffff;
+  --color-border-soft: rgba(15, 15, 15, 0.08);
+  --color-border-softer: rgba(15, 15, 15, 0.04);
+  --color-sidebar-a: #cdd3fb;
+  --color-sidebar-b: #dcd6f7;
+  --color-canvas-a: #d7dcfb;
+  --color-canvas-b: #eadaf4;
+  --color-canvas-c: #f6dfea;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+textarea,
+input,
+button {
+  font-family: inherit;
+}
+
+textarea {
+  resize: none;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.22);
+}
+
+/* Page-level canvas gradient used on home + generic pages */
+.canvas-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-canvas-a) 0%,
+    var(--color-canvas-b) 55%,
+    var(--color-canvas-c) 100%
+  );
+}
+
+/* Sidebar gradient */
+.sidebar-gradient {
+  background: linear-gradient(
+    180deg,
+    var(--color-sidebar-a) 0%,
+    var(--color-sidebar-b) 100%
+  );
+}
+
+/* Subtle card shadow used throughout */
+.card-shadow {
+  box-shadow:
+    0 1px 2px rgba(15, 15, 15, 0.04),
+    0 8px 24px rgba(15, 15, 15, 0.06);
+}
+
+.composer-shadow {
+  box-shadow:
+    0 1px 2px rgba(15, 15, 15, 0.05),
+    0 10px 30px rgba(15, 15, 15, 0.06);
+}
+
+.pill-active {
+  background: #ffffff;
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.03),
+    0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+@keyframes caret-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+.streaming-caret::after {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 1em;
+  vertical-align: -2px;
+  background: currentColor;
+  margin-left: 2px;
+  animation: caret-blink 1s steps(1) infinite;
+  opacity: 0.6;
+}
